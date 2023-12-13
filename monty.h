@@ -44,8 +44,6 @@ typedef struct instruction_s
 
 
 
-
-int checkFileData(int argc, char *argv[]);
+FILE* checkFileData(int argc, char *argv[]);
 
 #endif
-
