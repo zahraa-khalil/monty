@@ -65,10 +65,30 @@ void strToken(char *str, int lineNumber)
 
 void parseLine(char *token, int lineNumber)
 {
-	printf("%d----token /%s\n",  lineNumber, token);
+	char *fPush = "push";
+	printf("%d----token /%s\n", lineNumber, token);
 
 	/*parse line */
+	if (strcmp(token, "push") == 0)
+	{
+		/* Fetch the next token (which should be an integer)*/
+		token = strtok(NULL, " ");
+		if (token != NULL)
+		{
+			int num = atoi(token); /*Convert the token to an integer*/
+			printf("Received integer: %d\n", num);
+			/* Execute the line with the command and integer*/
+			pushFunc(fPush, num);
+		}
+	}
+
+	/*else if (strcmp(token, "pall") == 0)
+	{
+		printf("print alllllll\n");
+	}
+	*/
 }
+
 int main(int argc, char *argv[])
 {
 	FILE *file_p;

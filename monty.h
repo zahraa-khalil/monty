@@ -46,5 +46,6 @@ FILE* checkFileData(char *argv[]);
 void reading_file(FILE *file_p);
 void strToken(char *str, int lineNumber);
 void parseLine(char *token, int lineNumber);
+void pushFunc(char *str, int num);
 
 #endif
