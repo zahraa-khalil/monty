@@ -66,6 +66,8 @@ void strToken(char *str, int lineNumber)
 void parseLine(char *token, int lineNumber)
 {
 	printf("%d----token /%s\n",  lineNumber, token);
+
+	/*parse line */
 }
 int main(int argc, char *argv[])
 {
