@@ -54,9 +54,8 @@ stack_t *_push(stack_t *stack, int value, int lineNumber);
 void _pall(stack_t *_stack);
 void free_stack(void);
 
-/********DATA STRUCTURE********/
-stack_t *_creat_List(stack_t *head, int data);	 /*Add To Empty*/
-stack_t *_ins_Beg_List(stack_t *head, int data); /*Add To Beginning*/
-stack_t *_ins_End_List(stack_t *head, int data); /*Add To End*/
+stack_t *_creat_List(stack_t *head, int data);
+stack_t *_ins_Beg_List(stack_t *head, int data);
+stack_t *_ins_End_List(stack_t *head, int data);
 
 #endif

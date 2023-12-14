@@ -1,28 +1,41 @@
 #include "monty.h"
 
-stack_t * _push(stack_t *_stack, int value, int lineNumber)
+/**
+ *_push - function that _push
+ *@_stack: head ptr
+ *@value: data
+ *@lineNumber: lineNumber
+ *Return: head
+ */
+stack_t *_push(stack_t *_stack, int value, int lineNumber)
 {
-    if(lineNumber == 1)/*Empty_List*/
-    {
-        return (_creat_List(_stack, value));
-    }
-    else /*Non Empty List*/
-    {
-        return(_ins_Beg_List(_stack, value));
-    }
-}
-void _pall(stack_t* _stack)
-{
-    while (_stack->next != NULL)
-			{
-				printf("%d\n",_stack->n);
-				_stack = _stack->next;
-			}
-			printf("%d\n",_stack->n);
+	if (lineNumber == 1) /*Empty_List*/
+	{
+		return (_creat_List(_stack, value));
+	}
+	else /*Non Empty List*/
+	{
+		return (_ins_Beg_List(_stack, value));
+	}
 }
 
 /**
- * free_nodes - Frees nodes in the stack.
+ *_pall - function that _push
+ *@_stack: head ptr
+ *Return: void
+ */
+void _pall(stack_t *_stack)
+{
+	while (_stack->next != NULL)
+	{
+		printf("%d\n", _stack->n);
+		_stack = _stack->next;
+	}
+	printf("%d\n", _stack->n);
+}
+
+/**
+ * free_stack - Frees nodes in the stack.
  */
 void free_stack(void)
 {
@@ -38,10 +51,3 @@ void free_stack(void)
 		free(tmp);
 	}
 }
-/*
-void pushFunc(char *str, int num)
-{
-    printf("pushFunc %s\n", str);
-    printf("pushFunc %d\n", num);
-}
-*/
