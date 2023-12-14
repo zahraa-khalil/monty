@@ -93,6 +93,10 @@ void parseLine(char *token, int lineNumber)
 		/*printf("print alllllll\n");*/
 		_pall(_head_ptr);
 	}
+	else if (strcmp(token, "pint") == 0)
+	{
+		_pint(_head_ptr, lineNumber);
+	}
 }
 
 /**

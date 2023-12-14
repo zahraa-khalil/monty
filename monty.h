@@ -52,6 +52,7 @@ void pushFunc(char *str, int num);
 
 stack_t *_push(stack_t *stack, int value, int lineNumber);
 void _pall(stack_t *_stack);
+void _pint(stack_t *_stack, int line_number);
 void free_stack(void);
 
 stack_t *_creat_List(stack_t *head, int data);
