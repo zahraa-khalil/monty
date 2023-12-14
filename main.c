@@ -106,6 +106,7 @@ int main(int argc, char *argv[])
 	reading_file(file_p);
 
 	fclose(file_p);
+	free_stack();
 	/*printf("file closed!\n");*/
 	return 0;
 }
