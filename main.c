@@ -48,7 +48,7 @@ void reading_file(FILE *file_p)
 void strToken(char *str, int lineNumber)
 {
 	char *token;
-	char *delim = " ";
+	char *delim = " \t\n";
 
 	token = strtok(str, delim);
 
@@ -58,35 +58,34 @@ void strToken(char *str, int lineNumber)
 		printf("Token:%d- %s\n", lineNumber, token);
 		str compare*/
 		parseLine(token, lineNumber);
-
-		token = strtok(NULL, " ");
+		token = strtok(NULL, " \t\n");
 	}
 }
 
 void parseLine(char *token, int lineNumber)
 {
-	char *fPush = "push";
+	/*stack_t *myStack = NULL; 
+	char *fPush = "push";*/
 	printf("%d----token /%s\n", lineNumber, token);
 
 	/*parse line */
 	if (strcmp(token, "push") == 0)
 	{
 		/* Fetch the next token (which should be an integer)*/
-		token = strtok(NULL, " ");
+		token = strtok(NULL, " \t\n");
 		if (token != NULL)
 		{
 			int num = atoi(token); /*Convert the token to an integer*/
 			printf("Received integer: %d\n", num);
 			/* Execute the line with the command and integer*/
-			pushFunc(fPush, num);
+			/*push(&myStack , num);*/
 		}
 	}
-
-	/*else if (strcmp(token, "pall") == 0)
+	else if (strcmp(token, "pall") == 0)
 	{
 		printf("print alllllll\n");
 	}
-	*/
+	
 }
 
 int main(int argc, char *argv[])
@@ -98,9 +97,7 @@ int main(int argc, char *argv[])
 		dprintf(2, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-
 	file_p = checkFileData(argv);
-
 	reading_file(file_p);
 
 	fclose(file_p);
