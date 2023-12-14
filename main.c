@@ -48,7 +48,7 @@ void reading_file(FILE *file_p)
 void strToken(char *str, int lineNumber)
 {
 	char *token;
-	char *delim = " \n\t";
+	char *delim = " ";
 
 	token = strtok(str, delim);
 
