@@ -58,3 +58,12 @@ stack_t *_ins_End_List(stack_t *head, int data) /*Add To Beginning*/
 	temp_ptr->prev = loop_ptr;
 	return (head);
 }
+
+void _exit_fail(char *line)
+{
+	if(file_p != NULL)
+		fclose(file_p);
+	free(line);
+	free_stack();
+	exit(EXIT_FAILURE);
+}

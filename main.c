@@ -1,6 +1,7 @@
 #include "monty.h"
 
 stack_t *_head_ptr = NULL;
+FILE *file_p = NULL;
 
 /**
  *checkFileData - function that checkFileData.
@@ -10,8 +11,6 @@ stack_t *_head_ptr = NULL;
 
 FILE *checkFileData(char *argv[])
 {
-	FILE *file_p;
-
 	file_p = fopen(argv[1], "r");
 	if (file_p == NULL)
 	{
@@ -61,7 +60,7 @@ void strToken(char *str, int lineNumber)
 
 	while (token != NULL)
 	{
-		parseLine(token, lineNumber);
+		parseLine(token, lineNumber, str);
 		token = strtok(NULL, " \t\n");
 	}
 }
@@ -72,7 +71,7 @@ void strToken(char *str, int lineNumber)
  *@lineNumber: lineNumber
  *Return: void.
  */
-void parseLine(char *token, int lineNumber)
+void parseLine(char *token, int lineNumber, char *line)
 {
 	if (strcmp(token, "push") == 0)
 	{
@@ -95,7 +94,7 @@ void parseLine(char *token, int lineNumber)
 	}
 	else if (strcmp(token, "pint") == 0)
 	{
-		_pint(_head_ptr, lineNumber);
+		_pint(_head_ptr, lineNumber, line);
 	}
 }
 

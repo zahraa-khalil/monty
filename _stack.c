@@ -43,12 +43,12 @@ void _pall(stack_t *_stack)
  *@line_number: line_number
  *Return: void
  */
-void _pint(stack_t *_stack, int line_number)
+void _pint(stack_t *_stack, int line_number, char *line)
 {
 	if (_stack == NULL)
 	{
 		printf("L%d: can't pint, stack empty\n", line_number);
-		exit(EXIT_FAILURE);
+		_exit_fail(line);
 	}
 	printf("%d\n", _stack->n);
 }

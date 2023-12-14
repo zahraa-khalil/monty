@@ -43,17 +43,20 @@ typedef struct instruction_s
 } instruction_t;
 
 extern stack_t *_head_ptr;
+extern FILE *file_p;
+
 
 FILE *checkFileData(char *argv[]);
 void reading_file(FILE *file_p);
 void strToken(char *str, int lineNumber);
-void parseLine(char *token, int lineNumber);
+void parseLine(char *token, int lineNumber, char *line);
 void pushFunc(char *str, int num);
 
 stack_t *_push(stack_t *stack, int value, int lineNumber);
 void _pall(stack_t *_stack);
-void _pint(stack_t *_stack, int line_number);
+void _pint(stack_t *_stack, int line_number, char *line);
 void free_stack(void);
+void _exit_fail(char *line);
 
 stack_t *_creat_List(stack_t *head, int data);
 stack_t *_ins_Beg_List(stack_t *head, int data);
