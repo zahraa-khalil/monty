@@ -78,3 +78,7 @@ Opcodes are directly executed by the CPU without requiring interpretation by any
 
 
 
+
+* read from file 
+* get line -> strtok -> compare to fun name -> if statement to handle each func
+* 
