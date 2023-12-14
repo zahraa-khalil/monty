@@ -17,7 +17,7 @@ FILE *checkFileData(char *argv[])
 		fprintf(stderr, "Error: Can't open file <%s>\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	printf("opening file %s\n", argv[1]);
+	/*printf("opening file %s\n", argv[1]);*/
 	return file_p;
 }
 
@@ -40,7 +40,7 @@ void reading_file(FILE *file_p)
 	}
 
 	free(line);
-	printf("line freed\n");
+	/*printf("line freed\n");*/
 }
 
 /**
@@ -69,7 +69,7 @@ void parseLine(char *token, int lineNumber)
 {
 	/*stack_t *myStack = NULL; 
 	char *fPush = "push";*/
-	printf("%d----token /%s\n", lineNumber, token);
+	/*printf("%d----token /%s\n", lineNumber, token);*/
 		/*parse line */
 		if (strcmp(token, "push") == 0)
 		{
@@ -78,16 +78,16 @@ void parseLine(char *token, int lineNumber)
 			if (token != NULL)
 			{
 				int num = atoi(token); /*Convert the token to an integer*/
-				printf("Received integer: %d\n", num);
+				/*printf("Received integer: %d\n", num);*/
 				/* Execute the line with the command and integer*/
-				printf("lineNumber: %d\n",lineNumber);
+				/*printf("lineNumber: %d\n",lineNumber);*/
 
 				_head_ptr = _push(_head_ptr ,num, lineNumber);
 			}
 		}
 		else if (strcmp(token, "pall") == 0)
 		{
-			printf("print alllllll\n");
+			/*printf("print alllllll\n");*/
 			_pall(_head_ptr);
 		}
 		
@@ -106,6 +106,6 @@ int main(int argc, char *argv[])
 	reading_file(file_p);
 
 	fclose(file_p);
-	printf("file closed!\n");
+	/*printf("file closed!\n");*/
 	return 0;
 }
