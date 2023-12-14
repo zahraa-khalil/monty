@@ -45,6 +45,6 @@ typedef struct instruction_s
 FILE* checkFileData(char *argv[]);
 void reading_file(FILE *file_p);
 void strToken(char *str, int lineNumber);
-
+void parseLine(char *token, int lineNumber);
 
 #endif

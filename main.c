@@ -54,14 +54,19 @@ void strToken(char *str, int lineNumber)
 
 	while (token != NULL)
 	{
+		/*
 		printf("Token:%d- %s\n", lineNumber, token);
-		/*str compare*/
+		str compare*/
+		parseLine(token, lineNumber);
 
 		token = strtok(NULL, " ");
 	}
 }
 
-
+void parseLine(char *token, int lineNumber)
+{
+	printf("%d----token /%s\n",  lineNumber, token);
+}
 int main(int argc, char *argv[])
 {
 	FILE *file_p;
