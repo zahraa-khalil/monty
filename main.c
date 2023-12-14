@@ -1,5 +1,8 @@
 #include "monty.h"
 
+stack_t *_head_ptr = NULL;
+
+
 FILE *checkFileData(char *argv[])
 {
 	FILE *file_p;
@@ -67,25 +70,27 @@ void parseLine(char *token, int lineNumber)
 	/*stack_t *myStack = NULL; 
 	char *fPush = "push";*/
 	printf("%d----token /%s\n", lineNumber, token);
-
-	/*parse line */
-	if (strcmp(token, "push") == 0)
-	{
-		/* Fetch the next token (which should be an integer)*/
-		token = strtok(NULL, " \t\n");
-		if (token != NULL)
+		/*parse line */
+		if (strcmp(token, "push") == 0)
 		{
-			int num = atoi(token); /*Convert the token to an integer*/
-			printf("Received integer: %d\n", num);
-			/* Execute the line with the command and integer*/
-			/*push(&myStack , num);*/
+			/* Fetch the next token (which should be an integer)*/
+			token = strtok(NULL, " \t\n");
+			if (token != NULL)
+			{
+				int num = atoi(token); /*Convert the token to an integer*/
+				printf("Received integer: %d\n", num);
+				/* Execute the line with the command and integer*/
+				printf("lineNumber: %d\n",lineNumber);
+
+				_head_ptr = _push(_head_ptr ,num, lineNumber);
+			}
 		}
-	}
-	else if (strcmp(token, "pall") == 0)
-	{
-		printf("print alllllll\n");
-	}
-	
+		else if (strcmp(token, "pall") == 0)
+		{
+			printf("print alllllll\n");
+			_pall(_head_ptr);
+		}
+		
 }
 
 int main(int argc, char *argv[])
