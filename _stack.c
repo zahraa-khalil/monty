@@ -66,7 +66,7 @@ void _pop(stack_t **_stack, int line_number, char *line)
 {
 	stack_t *tmp;
 
-	if (_stack == NULL)
+	if (_stack == NULL || *_stack == NULL)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
 		_exit_fail(line);
