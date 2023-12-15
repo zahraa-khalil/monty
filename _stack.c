@@ -45,12 +45,12 @@ void _pall(stack_t *_stack)
  *@line: line
  *Return: void
  */
-void _pint(stack_t *_stack, int line_number, char *line)
+void _pint(stack_t *_stack, int line_number, char *line, FILE *file_p)
 {
 	if (_stack == NULL)
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
-		_exit_fail(line);
+		_exit_fail(line, file_p);
 	}
 	printf("%d\n", _stack->n);
 }
@@ -62,14 +62,14 @@ void _pint(stack_t *_stack, int line_number, char *line)
  *@line: line
  *Return: void
  */
-void _pop(stack_t **_stack, int line_number, char *line)
+void _pop(stack_t **_stack, int line_number, char *line, FILE *file_p)
 {
 	stack_t *tmp;
 
 	if (_stack == NULL || *_stack == NULL)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
-		_exit_fail(line);
+		_exit_fail(line, file_p);
 	}
 	tmp = *_stack;
 	*_stack = tmp->next;

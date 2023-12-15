@@ -1,7 +1,6 @@
 #include "monty.h"
 
 stack_t *_head_ptr = NULL;
-FILE *file_p = NULL;
 
 /**
  *checkFileData - function that checkFileData.
@@ -11,7 +10,7 @@ FILE *file_p = NULL;
 
 FILE *checkFileData(char *argv[])
 {
-	file_p = fopen(argv[1], "r");
+	FILE *file_p = fopen(argv[1], "r");
 	if (file_p == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file <%s>\n", argv[1]);
@@ -37,7 +36,7 @@ void reading_file(FILE *file_p)
 	while ((read = getline(&line, &len, file_p)) != -1)
 	{
 		line_number++;
-		strToken(line, line_number);
+		strToken(line, line_number, file_p);
 	}
 
 	free(line);
@@ -48,10 +47,11 @@ void reading_file(FILE *file_p)
  *strToken - tokenize string into smaller strings
  *@str: string to execute
  *@lineNumber: lineNumber
+ *@file_p: file_p
  *Return: void.
  */
 
-void strToken(char *str, int lineNumber)
+void strToken(char *str, int lineNumber, FILE *file_p)
 {
 	char *token;
 	char *delim = "\" \t\n=";
@@ -60,7 +60,7 @@ void strToken(char *str, int lineNumber)
 
 	while (token != NULL)
 	{
-		parseLine(token, lineNumber, str);
+		parseLine(token, lineNumber, str, file_p);
 		token = strtok(NULL, "\" \t\n=");
 	}
 }
@@ -70,9 +70,10 @@ void strToken(char *str, int lineNumber)
  *@token: token
  *@lineNumber: lineNumber
  *@line: line
+ *@file_p: file_p
  *Return: void.
  */
-void parseLine(char *token, int lineNumber, char *line)
+void parseLine(char *token, int lineNumber, char *line, FILE *file_p)
 {
 	if (strcmp(token, "push") == 0)
 	{
@@ -82,23 +83,22 @@ void parseLine(char *token, int lineNumber, char *line)
 		if (token == NULL)
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", lineNumber);
-			_exit_fail(line);
+			_exit_fail(line, file_p);
 		}
 		for (iter = 0; token[iter] != '\0'; iter++)
 		{
 			if (isdigit(token[iter]) == 0)
-				{
-					fprintf(stderr, "L%d: usage: push integer\n", lineNumber);
-					_exit_fail(line);
-				}
+			{
+				fprintf(stderr, "L%d: usage: push integer\n", lineNumber);
+				_exit_fail(line, file_p);
+			}
 		}
-			num = atoi(token); /*Convert the token to an integer*/
-			/*printf("Received integer: %d\n", num);*/
-			/* Execute the line with the command and integer*/
-			/*printf("lineNumber: %d\n",lineNumber);*/
+		num = atoi(token); /*Convert the token to an integer*/
+		/*printf("Received integer: %d\n", num);*/
+		/* Execute the line with the command and integer*/
+		/*printf("lineNumber: %d\n",lineNumber);*/
 
-			_head_ptr = _push(_head_ptr, num, lineNumber);
-
+		_head_ptr = _push(_head_ptr, num, lineNumber);
 	}
 	else if (strcmp(token, "pall") == 0)
 	{
@@ -107,11 +107,11 @@ void parseLine(char *token, int lineNumber, char *line)
 	}
 	else if (strcmp(token, "pint") == 0)
 	{
-		_pint(_head_ptr, lineNumber, line);
+		_pint(_head_ptr, lineNumber, line, file_p);
 	}
 	else if (strcmp(token, "pop") == 0)
 	{
-		_pop(&_head_ptr, lineNumber, line);
+		_pop(&_head_ptr, lineNumber, line, file_p);
 	}
 }
 

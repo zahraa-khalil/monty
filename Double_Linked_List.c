@@ -62,9 +62,10 @@ stack_t *_ins_End_List(stack_t *head, int data) /*Add To Beginning*/
 /**
  *_exit_fail - function that _exit_fail.
  *@line: line
+ *@file_p: file_p
  *Return: void
  */
-void _exit_fail(char *line)
+void _exit_fail(char *line, FILE *file_p)
 {
 	if (file_p != NULL)
 		fclose(file_p);
