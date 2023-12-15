@@ -59,9 +59,14 @@ stack_t *_ins_End_List(stack_t *head, int data) /*Add To Beginning*/
 	return (head);
 }
 
+/**
+ *_exit_fail - function that _exit_fail.
+ *@line: line
+ *Return: void
+ */
 void _exit_fail(char *line)
 {
-	if(file_p != NULL)
+	if (file_p != NULL)
 		fclose(file_p);
 	free(line);
 	free_stack();

@@ -69,6 +69,7 @@ void strToken(char *str, int lineNumber)
  *parseLine - function that parseLine
  *@token: token
  *@lineNumber: lineNumber
+ *@line: line
  *Return: void.
  */
 void parseLine(char *token, int lineNumber, char *line)
@@ -100,7 +101,6 @@ void parseLine(char *token, int lineNumber, char *line)
 	{
 		_pop(&_head_ptr, lineNumber, line);
 	}
-	
 }
 
 /**

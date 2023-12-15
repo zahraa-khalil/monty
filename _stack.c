@@ -27,6 +27,7 @@ stack_t *_push(stack_t *_stack, int value, int lineNumber)
 void _pall(stack_t *_stack)
 {
 	stack_t *_pall_ptr = _stack;
+
 	if (_pall_ptr == NULL)
 		return;
 	while (_pall_ptr->next != NULL)
@@ -41,6 +42,7 @@ void _pall(stack_t *_stack)
  *_pint - function that _pint
  *@_stack: head ptr
  *@line_number: line_number
+ *@line: line
  *Return: void
  */
 void _pint(stack_t *_stack, int line_number, char *line)
@@ -53,9 +55,17 @@ void _pint(stack_t *_stack, int line_number, char *line)
 	printf("%d\n", _stack->n);
 }
 
+/**
+ *_pop - function that _pop
+ *@_stack: head ptr
+ *@line_number: line_number
+ *@line: line
+ *Return: void
+ */
 void _pop(stack_t **_stack, int line_number, char *line)
 {
 	stack_t *tmp;
+
 	if (_stack == NULL)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
