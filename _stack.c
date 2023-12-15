@@ -85,7 +85,7 @@ void _pop(stack_t **_stack, int line_number, char *line, FILE *file_p)
  * @_stack: Pointer to a pointer pointing to top node of the stack.
  * @line_number: Interger representing the line number of of the opcode.
  */
-void _nop(stack_t **_stack, unsigned int line_number)
+void _nop(stack_t **_stack, int line_number)
 {
 	(void)_stack;
 	(void)line_number;
