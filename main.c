@@ -114,6 +114,8 @@ void parseLine(char *token, int lineNumber, char *line, FILE *file_p)
 		_pop(&_head_ptr, lineNumber, line, file_p);
 	else if (strcmp(token, "nop") == 0)
 		_nop(&_head_ptr, lineNumber);
+	else if (strcmp(token, "swap") == 0)
+		_swap(&_head_ptr, lineNumber, line, file_p);
 }
 
 /**

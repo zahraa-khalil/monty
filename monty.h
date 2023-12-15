@@ -56,6 +56,7 @@ void _pall(stack_t *_stack);
 void _pint(stack_t *_stack, int line_number, char *line, FILE *file_p);
 void _pop(stack_t **_stack, int line_number, char *line, FILE *file_p);
 void _nop(stack_t **_stack, unsigned int line_number);
+void _swap(stack_t **_stack, unsigned int line_number, char *line, FILE *file_p);
 
 void free_stack(void);
 void _exit_fail(char *line, FILE *file_p);
