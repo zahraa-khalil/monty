@@ -80,22 +80,13 @@ void _pop(stack_t **_stack, int line_number, char *line, FILE *file_p)
 	free(tmp);
 }
 
-
-
 /**
- * free_stack - Frees nodes in the stack.
+ * _nop - Does nothing.
+ * @_stack: Pointer to a pointer pointing to top node of the stack.
+ * @line_number: Interger representing the line number of of the opcode.
  */
-void free_stack(void)
+void _nop(stack_t **_stack, unsigned int line_number)
 {
-	stack_t *tmp;
-
-	if (_head_ptr == NULL)
-		return;
-
-	while (_head_ptr != NULL)
-	{
-		tmp = _head_ptr;
-		_head_ptr = _head_ptr->next;
-		free(tmp);
-	}
+	(void)_stack;
+	(void)line_number;
 }

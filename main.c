@@ -111,9 +111,9 @@ void parseLine(char *token, int lineNumber, char *line, FILE *file_p)
 		_pint(_head_ptr, lineNumber, line, file_p);
 	}
 	else if (strcmp(token, "pop") == 0)
-	{
 		_pop(&_head_ptr, lineNumber, line, file_p);
-	}
+	else if (strcmp(token, "nop") == 0)
+		_nop(&_head_ptr, lineNumber);
 }
 
 /**
