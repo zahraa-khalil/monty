@@ -54,14 +54,14 @@ void reading_file(FILE *file_p)
 void strToken(char *str, int lineNumber)
 {
 	char *token;
-	char *delim = " \t\n";
+	char *delim = "\" \t\n=";
 
 	token = strtok(str, delim);
 
 	while (token != NULL)
 	{
 		parseLine(token, lineNumber, str);
-		token = strtok(NULL, " \t\n");
+		token = strtok(NULL, "\" \t\n=");
 	}
 }
 
@@ -77,7 +77,7 @@ void parseLine(char *token, int lineNumber, char *line)
 	if (strcmp(token, "push") == 0)
 	{
 		/* Fetch the next token (which should be an integer)*/
-		token = strtok(NULL, " \t\n");
+		token = strtok(NULL, "\" \t\n=");
 		if (token != NULL)
 		{
 			int num = atoi(token); /*Convert the token to an integer*/

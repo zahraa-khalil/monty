@@ -1,4 +1,4 @@
-push 1
+montyBytes="push 1
 push 2
 push 3
 pall
@@ -7,4 +7,4 @@ pall
 pop
 pall
 pop
-pall
+pall"
