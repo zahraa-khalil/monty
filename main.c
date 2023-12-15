@@ -76,17 +76,29 @@ void parseLine(char *token, int lineNumber, char *line)
 {
 	if (strcmp(token, "push") == 0)
 	{
+		int num, iter = 0;
 		/* Fetch the next token (which should be an integer)*/
 		token = strtok(NULL, "\" \t\n=");
-		if (token != NULL)
+		if (token == NULL)
 		{
-			int num = atoi(token); /*Convert the token to an integer*/
+			fprintf(stderr, "L%d: usage: push integer\n", lineNumber);
+			_exit_fail(line);
+		}
+		for (iter = 0; token[iter] != '\0'; iter++)
+		{
+			if (isdigit(token[iter]) == 0)
+				{
+					fprintf(stderr, "L%d: usage: push integer\n", lineNumber);
+					_exit_fail(line);
+				}
+		}
+			num = atoi(token); /*Convert the token to an integer*/
 			/*printf("Received integer: %d\n", num);*/
 			/* Execute the line with the command and integer*/
 			/*printf("lineNumber: %d\n",lineNumber);*/
 
 			_head_ptr = _push(_head_ptr, num, lineNumber);
-		}
+
 	}
 	else if (strcmp(token, "pall") == 0)
 	{
