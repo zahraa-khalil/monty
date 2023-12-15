@@ -43,6 +43,7 @@ void _pall(stack_t *_stack)
  *@_stack: head ptr
  *@line_number: line_number
  *@line: line
+ *@file_p: file_p
  *Return: void
  */
 void _pint(stack_t *_stack, int line_number, char *line, FILE *file_p)
@@ -60,6 +61,7 @@ void _pint(stack_t *_stack, int line_number, char *line, FILE *file_p)
  *@_stack: head ptr
  *@line_number: line_number
  *@line: line
+ *@file_p: file_p
  *Return: void
  */
 void _pop(stack_t **_stack, int line_number, char *line, FILE *file_p)

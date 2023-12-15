@@ -11,6 +11,7 @@ stack_t *_head_ptr = NULL;
 FILE *checkFileData(char *argv[])
 {
 	FILE *file_p = fopen(argv[1], "r");
+
 	if (file_p == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file <%s>\n", argv[1]);
