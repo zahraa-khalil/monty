@@ -95,15 +95,10 @@ void parseLine(char *token, int lineNumber, char *line, FILE *file_p)
 			}
 		}
 		num = atoi(token); /*Convert the token to an integer*/
-		/*printf("Received integer: %d\n", num);*/
-		/* Execute the line with the command and integer*/
-		/*printf("lineNumber: %d\n",lineNumber);*/
-
 		_head_ptr = _push(_head_ptr, num, lineNumber);
 	}
 	else if (strcmp(token, "pall") == 0)
 	{
-		/*printf("print alllllll\n");*/
 		_pall(_head_ptr);
 	}
 	else if (strcmp(token, "pint") == 0)
@@ -116,6 +111,8 @@ void parseLine(char *token, int lineNumber, char *line, FILE *file_p)
 		_nop(&_head_ptr, lineNumber);
 	else if (strcmp(token, "swap") == 0)
 		_swap(&_head_ptr, lineNumber, line, file_p);
+	else if (strcmp(token, "add") == 0)
+		_add(&_head_ptr, lineNumber, line, file_p);
 }
 
 /**
