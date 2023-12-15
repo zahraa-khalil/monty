@@ -96,6 +96,11 @@ void parseLine(char *token, int lineNumber, char *line)
 	{
 		_pint(_head_ptr, lineNumber, line);
 	}
+	else if (strcmp(token, "pop") == 0)
+	{
+		_pop(&_head_ptr, lineNumber, line);
+	}
+	
 }
 
 /**

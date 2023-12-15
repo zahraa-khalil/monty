@@ -26,15 +26,15 @@ stack_t *_push(stack_t *_stack, int value, int lineNumber)
  */
 void _pall(stack_t *_stack)
 {
-	if (_stack == NULL)
+	stack_t *_pall_ptr = _stack;
+	if (_pall_ptr == NULL)
 		return;
-	while (_stack->next != NULL)
+	while (_pall_ptr->next != NULL)
 	{
-		printf("%d\n", _stack->n);
-		_stack = _stack->next;
+		printf("%d\n", _pall_ptr->n);
+		_pall_ptr = _pall_ptr->next;
 	}
-	printf("%d\n", _stack->n);
-	free_stack();
+	printf("%d\n", _pall_ptr->n);
 }
 
 /**
@@ -47,11 +47,29 @@ void _pint(stack_t *_stack, int line_number, char *line)
 {
 	if (_stack == NULL)
 	{
-		printf("L%d: can't pint, stack empty\n", line_number);
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
 		_exit_fail(line);
 	}
 	printf("%d\n", _stack->n);
 }
+
+void _pop(stack_t **_stack, int line_number, char *line)
+{
+	stack_t *tmp;
+	if (_stack == NULL)
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+		_exit_fail(line);
+	}
+	tmp = *_stack;
+	*_stack = tmp->next;
+	if (*_stack != NULL)
+		(*_stack)->prev = NULL;
+	free(tmp);
+}
+
+
+
 /**
  * free_stack - Frees nodes in the stack.
  */

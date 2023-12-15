@@ -55,6 +55,8 @@ void pushFunc(char *str, int num);
 stack_t *_push(stack_t *stack, int value, int lineNumber);
 void _pall(stack_t *_stack);
 void _pint(stack_t *_stack, int line_number, char *line);
+void _pop(stack_t **_stack, int line_number, char *line);
+
 void free_stack(void);
 void _exit_fail(char *line);
 
