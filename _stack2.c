@@ -13,7 +13,7 @@ void _swap(stack_t **_stack, int line_number, char *line, FILE *file_p)
 
 	if (_stack == NULL || *_stack == NULL || (*_stack)->next == NULL)
 	{
-		fprintf(stderr, "L%d: can't swap, _stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
 		_exit_fail(line, file_p);
 	}
 	tmp = (*_stack)->next;
