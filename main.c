@@ -14,7 +14,7 @@ FILE *checkFileData(char *argv[])
 
 	if (file_p == NULL)
 	{
-		fprintf(stderr, "Error: Can't open file <%s>\n", argv[1]);
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 	/*printf("opening file %s\n", argv[1]);*/
@@ -113,6 +113,9 @@ void parseLine(char *token, int lineNumber, char *line, FILE *file_p)
 		_swap(&_head_ptr, lineNumber, line, file_p);
 	else if (strcmp(token, "add") == 0)
 		_add(&_head_ptr, lineNumber, line, file_p);
+	else
+		{fprintf(stderr, "L%d: unknown instruction %s\n", lineNumber, token);
+		_exit_fail(line, file_p);	}
 }
 
 /**
